@@ -1,0 +1,6 @@
+**
+!production-server/**
+!client/.next/**
+client/.next/cache
+!README.md
+!LICENSE
