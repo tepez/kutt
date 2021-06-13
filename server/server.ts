@@ -8,6 +8,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import nextApp from "next";
 import * as Sentry from "@sentry/node";
+import * as Path from "path";
 
 import * as helpers from "./handlers/helpers";
 import * as links from "./handlers/links";
@@ -19,7 +20,10 @@ import "./cron";
 import "./passport";
 
 const port = env.PORT;
-const app = nextApp({ dir: "./client", dev: env.isDev });
+const app = nextApp({
+  dir: Path.resolve(__dirname, "../client"),
+  dev: env.isDev
+});
 const handle = app.getRequestHandler();
 
 app.prepare().then(async () => {
@@ -48,7 +52,7 @@ app.prepare().then(async () => {
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
   server.use(passport.initialize());
-  server.use(express.static("static"));
+  server.use(express.static(Path.resolve(__dirname, "../static")));
   server.use(helpers.ip);
 
   server.use(asyncHandler(links.redirectCustomDomain));
