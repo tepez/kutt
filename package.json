@@ -14,7 +14,8 @@
     "migrate:make": "knex migrate:make --env production",
     "lint": "eslint server/ --ext .js,.ts --fix",
     "lint:nofix": "eslint server/ --ext .js,.ts",
-    "docs:build": "cd docs/api && tsc generate.ts --resolveJsonModule && node generate && cd ../.."
+    "docs:build": "cd docs/api && tsc generate.ts --resolveJsonModule && node generate && cd ../..",
+    "update": "npm run build && npx np --no-publish --branch tepez"
   },
   "husky": {
     "hooks": {
@@ -159,6 +160,7 @@
     "mocha": "^5.2.0",
     "nock": "^9.3.3",
     "nodemon": "^1.19.4",
+    "np": "^7.5.0",
     "prettier": "^1.19.1",
     "redoc": "^2.0.0-rc.20",
     "rimraf": "^3.0.0",
