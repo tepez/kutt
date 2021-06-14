@@ -19,6 +19,8 @@ import routes from "./routes";
 import "./cron";
 import "./passport";
 
+export const server = express();
+
 const port = env.PORT;
 const app = nextApp({
   dir: Path.resolve(__dirname, "../client"),
@@ -27,8 +29,6 @@ const app = nextApp({
 const handle = app.getRequestHandler();
 
 app.prepare().then(async () => {
-  const server = express();
-
   server.set("trust proxy", true);
 
   if (env.isDev) {
