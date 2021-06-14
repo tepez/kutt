@@ -42,7 +42,7 @@ export const signToken = (user: UserJoined) =>
 
 export const generateId = async (domain_id: number = null) => {
   const address = generate(
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+    env.LINK_CHARACTERS,
     env.LINK_LENGTH
   );
   const link = await query.link.find({ address, domain_id });
