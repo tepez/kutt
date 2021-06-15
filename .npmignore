@@ -4,3 +4,6 @@
 client/.next/cache
 !README.md
 !LICENSE
+!*.ts
+!client/**
+!server/**
