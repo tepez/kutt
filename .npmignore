@@ -1,9 +1,10 @@
 **
 !production-server/**
 !client/.next/**
-client/.next/.cache
+client/.next/cache
 !README.md
 !LICENSE
 !*.ts
 !client/**
 !server/**
+!static/**
